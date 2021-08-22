@@ -46,6 +46,7 @@ import (
 	"github.com/crossplane/provider-aws/pkg/controller/config"
 	"github.com/crossplane/provider-aws/pkg/controller/database"
 	"github.com/crossplane/provider-aws/pkg/controller/database/dbsubnetgroup"
+	"github.com/crossplane/provider-aws/pkg/controller/databasemigrationservice/replicationsubnetgroup"
 	docdbcluster "github.com/crossplane/provider-aws/pkg/controller/docdb/dbcluster"
 	docdbclusterparametergroup "github.com/crossplane/provider-aws/pkg/controller/docdb/dbclusterparametergroup"
 	docdbinstance "github.com/crossplane/provider-aws/pkg/controller/docdb/dbinstance"
@@ -189,6 +190,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, poll ti
 		vpcpeeringconnection.SetupVPCPeeringConnection,
 		kafkacluster.SetupCluster,
 		efsmounttarget.SetupMountTarget,
+		replicationsubnetgroup.SetupReplicationSubnetGroup,
 	} {
 		if err := setup(mgr, l, rl, poll); err != nil {
 			return err

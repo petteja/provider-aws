@@ -1,0 +1,15 @@
+apiVersion: databasemigrationservice.aws.crossplane.io/v1alpha1
+kind: ReplicationSubnetGroup
+metadata:
+  name: replication-subnet-group
+spec:
+  forProvider:
+    region: eu-north-1
+    replicationSubnetGroupDescription: sample description
+    replicationSubnetGroupIdentifier: crossplane replication subnet group
+    subnetIDs:
+      - subnet-id1
+      - subnet-id2
+    tags:
+    - key: Name
+      value: example
